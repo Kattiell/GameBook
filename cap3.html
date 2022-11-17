@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://sites.google.com/site/novoefeitoneve/home/novoefeitoneve/snowstorm.js"></script>
+    <!--
+     Icon Do GameBook
+
+<link rel="shortcut icon" href="favicon.ico">
+
+-->
+
+    <title>The Age of Exiles</title>
+    <!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Main css -->
+    <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.booklet.1.1.0.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background: url('images/textura.jpg');
+            color: #444;
+            font-size: 12px;
+            color: #333;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .booklet {
+            width: 900px;
+            height: 607px;
+            position: relative;
+            margin: 0 auto 10px;
+            box-shadow: 0px 0px 1px #fff;
+
+        }
+
+        .booklet .b-wrap-left {
+            background: #fff url(images/left_bg.jpg) no-repeat top left;
+            -webkit-border-top-left-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+            -moz-border-radius-topleft: 10px;
+            -moz-border-radius-bottomleft: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .booklet .b-wrap-right {
+            background: #efefef url(images/right_bg.jpg) no-repeat top left;
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .booklet .b-counter {
+            bottom: 10px;
+            position: absolute;
+            display: block;
+            width: 90%;
+            height: 20px;
+            border-top: 1px solid #ddd;
+            columns: rgba(34, 34, 34, 0.02);
+            ;
+            text-align: center;
+            font-size: 12px;
+            padding: 5px 0 0;
+            background: transparent;
+            -moz-box-shadow: 0px -1px 1px #fff;
+            -webkit-box-shadow: 0px -1px 1px #fff;
+            box-shadow: 0px -1px 1px #fff;
+            opacity: 0.8;
+        }
+
+        .book_wrapper {
+            margin: 0 auto;
+            padding-top: 50px;
+            width: 905px;
+
+            position: relative;
+            background: transparent url(images/bg.png) no-repeat 9px 27px;
+            text-align: justify;
+        }
+
+        .book_wrapper h1 {
+            color: black;
+            margin: 5px 5px 5px 15px;
+            font-size: 24px;
+            font-family: 'Times New Roman', Times, serif;
+            padding-bottom: 7px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .book_wrapper p {
+            font-size: 15px;
+            margin: 5px 5px 5px 15px;
+        }
+
+        .book_wrapper a.article,
+        .book_wrapper a.demo {
+            background: transparent url(images/circle.png) no-repeat 50% 0px;
+            display: block;
+            width: 95px;
+            height: 41px;
+            text-decoration: none;
+            outline: none;
+            font-size: 16px;
+            color: #555;
+            float: left;
+            line-height: 41px;
+            padding-left: 47px;
+        }
+
+        .book_wrapper a.demo {
+            margin-left: 50px;
+        }
+
+        .book_wrapper a.article:hover,
+        .book_wrapper a.demo:hover {
+            background-position: 50% -41px;
+            color: #13386a;
+        }
+
+        .book_wrapper img {
+            margin: 10px 0px 5px 35px;
+            width: 300px;
+            padding: 4px;
+        }
+
+        a#next_page_button,
+        a#prev_page_button {
+            display: none;
+            position: absolute;
+            width: 41px;
+            height: 40px;
+            cursor: pointer;
+            margin-top: -20px;
+            top: 50%;
+            background: transparent url(images/buttons.png) no-repeat 0px -40px;
+        }
+
+        a#prev_page_button {
+            left: -30px;
+        }
+
+        a#next_page_button {
+            right: -30px;
+            background-position: -41px -40px;
+        }
+
+        a#next_page_button:hover {
+            background-position: -41px 0px;
+        }
+
+        a#prev_page_button:hover {
+            background-position: 0px 0px;
+        }
+
+        .activo {
+            background-color: black;
+            color: white !important;
+        }
+
+        .activo:hover {
+            background-color: white;
+            color: black
+        }
+
+        .dropbtn {
+            background-color: white;
+            color: black;
+            padding: 13px;
+            font-size: 13px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRE LOADER -->
+
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-wordpress">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </div>
+
+    <!-- Navigation section  -->
+
+
+    <!-- Home Section -->
+    <section>
+        <div class="dropdown">
+            <button class="dropbtn">Capítulos</button>
+            <div class="dropdown-content">
+                <a onclick="menu('cap1.html')">Capítulo 1</a>
+                <a onclick="menu('cap2.html')">Capítulo 2</a>
+                <a class="activo" onclick="menu('cap3.html')">Capítulo 3</a>
+            </div>
+        </div>
+        <div class="book_wrapper">
+            <a id="next_page_button"></a>
+            <a id="prev_page_button"></a>
+
+            <div id="mybook" style="display:none;">
+                <div class="b-load">
+                    <div>
+                        <h1>
+                            Capítulo 3
+                        </h1>
+
+                        <h2>
+                            <center>
+                                A caminhada até o castelo
+                            </center>
+                        </h2>
+                        <br>
+                        <p>
+                            Após dias de caminhada, os quatro acharam um lago, e um pasto muito belo,
+                            havia montanhas por pertos em exclusivo uma com algumas ruinas, e monumentos históricos
+                            o barulho das aves que estavam por lá, era tão belo e relaxante
+                            chegava a ser ridículo encontrarem um lugar como aquele em Miratry.
+                        </p>
+                        <p>
+                            Chegaram a pensar que talvez pudesse ser o último conforto que iriam ter, então
+                            banharam-se em um lago nas proximidades para lavarem as feridas da batalha.
+                        </p>
+                        <p>
+                            Scarlett achou algumas ervas medicinais que estavam ali por perto, que ajudou a aliviar a
+                            dor.
+                        </p>
+                        <p>
+                            Os quatro subiram a montanha e sentaram-se bem no topo de, para apreciarem
+                            o sol batendo em seus rostos a
+                            brisa trazida pelo lago relfetida no vento, o mais incrível é que naquele lugar havia paz.
+                        </p>
+                    </div>
+                    <div>
+                        <br>
+                        <img src="images/conforto.jpg" height="250px" title="Paisagem histórica"
+                            alt="Paisagem histórica">
+                        <br>
+                        <p>
+                            -Rinorí: Eu não achei que apreciaria um pôr do sol como este mais.
+                        </p>
+                        <p> -Elinthy: É eu tambem nao,
+                            a ultima vez que apreciei um por do sol assim foi há muitos anos atrás,
+                            quando meus pais ainda estavam vivos.</p>
+                    </div>
+                    <div>
+                        <p>
+                            -Scarlett: É realmente lindo não acham, depois que conseguirmos sair
+                            daqui temos que fazer isso mais veze,s só nós quatro.
+                        </p>
+                        <p>
+                            -Hiroki: Eu apoio a ideia, já que estamos aqui e partiremos cedo é melhor
+                            aproveitarmos ao máximo.
+                        </p>
+                        <br>
+                        <p>
+                            Os quatro deitaram-se na grama, estava quente e confortável,
+                            mas logo a frente daquela paisagem havia um castelo abandonado envolvido por uma névoa
+                            negra,
+                            era onde Magnus estava, para os lembrar de que o que era bom duraria pouco.
+                        </p>
+                        <br>
+                        <img src="images/castelomagnus.png" height="190px" title="Castelo Do Magnus"
+                            alt="castelomagnus">
+
+                    </div>
+                    <div>
+                        <p>
+                            Naquela noite dormiriam por ali para contemplarem o céu noturno, pois não sabiam se
+                            passariam daquela noite,
+                            então estar ali faziam suas almas terem um descanso para no outro dia partirem para a
+                            jornada final.
+                        </p>
+                        <p>
+                            Passaram pelo resto do Vale, as batidas de seus corações ecoando a cada passo que davam,
+                            quanto mais perto chegavam mais a ansiedade tomava conta de seus corações.
+                        </p>
+                        <br>
+                        <p>
+                            -Hiroki: Pessoal…
+                        </p>
+                        <br>
+                        <p>
+                            Todos param de andar para prestar atenção nele.
+                        </p>
+                        </br>
+                        <p>
+                            -Hiroki: Finalmente nossa jornada está acabando, eu nunca tive companheiros tão atenciosos,
+                            confiáveis e poderosos como vocês, caso aconteça alguma coisa comigo quero que vocês saibam
+                            que..
+                        </p>
+                        <p>
+                            -Scarlet: Nao vai acontecer nada ruim com você Hiroki.
+                            Chegamos tão longe para alcançar nosso objetivo passamos por tanta coisa,
+                            não pode acontecer nada com a gente por favor Hiroki prometa pra mim que vai tomar cuidado.
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            -Hiroki: Scarllet...Eu...
+                        </p>
+                        <p>
+                            -Elinthy: Nós iremos até lá com toda confiança do mundo,
+                            aquele castelo tem tudo para nos dar medo mas nós somos fortes sabemos disso…
+                            Esse é o momento que nós vamos liberar todo o nosso poder.
+                        </p>
+                        <p>
+                            -Rinorí: Tenho medo do eu sou capaz,
+                            da última vez em que fiz isso, nao deu muito certo.
+                        </p>
+                        <p>
+                            -Elinthy: Eu confio em você Rinorí, eu sei que voce consegue,
+                            voce esta com a gente, você está… está comigo.
+                        </p>
+
+                        <p>
+                            -Rinorí: Elinthy você nunca falou assim comigo.
+                        </p>
+                        <p>
+                            -Hiroki: Muito bem pessoal tudo que eu tenho a dizer
+                            é que será uma grande honra lutar ao lado de vocês nessa batalha,
+                            e Scarllet irei tomar cuidado voltarei vivo, não se preocupe...Isso é uma promessa.
+                        </p>
+                        <br>
+                        <p>
+                            Então assim motivados e mais fortes do que nunca
+                            partiram rumo ao castelo onde teriam o maior combate de suas vidas.
+                        </p>
+                    </div>
+                    <div>
+                            <div class="container">
+                                <center>
+                                    <h2>
+                                        Uma voz vos fala.
+                                    </h2>
+                                </center>
+                                <br>
+                                <label for="personagens" style="font-size: 15px;">Se chegaram até aqui,
+                                    está na hora de escolher o que vão seguir, a felicidade? a destruição
+                                    ou o impasse? vocês esclheram e vão continuar escolhendo seus destinos.
+                                    dessa vez não será diferente
+                                    O que viraria 3 menos 1?..</label>
+                                <br><br><br>
+                                <select id="personagens">
+                                    <option value="escolha1">Escolha um</option>
+                                    <option value="escolha2">Escolha dois</option>
+                                    <option value="escolha3">Escolha três</option>
+                                    <option value="escolha4">Escolha quatro</option>
+                                </select>
+                                <button onclick="enviar()">Enviar</button>
+                                <div id="erro">
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <audio src="music/music2.mp3" controls autoplay loop>
+                <p>Seu navegador não suporta o elemento audio </p>
+            </audio>
+
+    </section>
+
+
+    <!-- SCRIPTS -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.parallax.js"></script>
+    <script src="js/custom.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $mybook = $('#mybook');
+            var $bttn_next = $('#next_page_button');
+            var $bttn_prev = $('#prev_page_button');
+
+            $bttn_next.show();
+            $bttn_prev.show();
+            $mybook.show().booklet({
+                overlays: false,
+                name: null,                            //  
+                width: 800,                             //  
+                height: 500,                             //   
+                speed: 600,                             //  
+                direction: 'LTR',                           //  
+                //  
+                next: $bttn_next,          			//  
+                prev: $bttn_prev,          			//
+
+            });
+        });
+
+    </script>
+    <script>
+        function enviar() {
+            var escolha = document.getElementById("magnus").value;
+            if (escolha == "3") {
+                //document.getElementById("gamebook").src = "cap2.html";
+                window.location = "cap3.html";
+            } else {
+                var erro = document.getElementById("erro").innerHTML = "Resposta Errada :( ";
+                return erro;
+            }
+        }
+    </script>
+    <script>
+        function enviar() {
+            var escolha = document.getElementById("personagens").value;
+            if (escolha == "escolha1") {
+                //document.getElementById("gamebook").src = "cap2.html";
+                window.location = "escolha1.html";
+            }
+            if (escolha == "escolha2") {
+                //document.getElementById("gamebook").src = "cap2.html";
+                window.location = "escolha2.html";
+            }
+            if (escolha == "escolha3") {
+                //document.getElementById("gamebook").src = "cap2.html";
+                window.location = "escolha3.html";
+            }
+            if (escolha == "escolha4") {
+                //document.getElementById("gamebook").src = "cap2.html";
+                alert("FINAL BLOQUEADO");
+            }
+
+        }
+        function menu(capitulo) {
+            window.location = capitulo;
+        }
+    </script>
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="booklet/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+
+    <link href="booklet/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+</body>
+
+</html>
